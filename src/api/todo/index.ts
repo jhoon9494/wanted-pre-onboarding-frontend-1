@@ -1,5 +1,4 @@
 import apiClient from '@/api/apiClient';
-import { createTodoType } from '@/api/todo/types';
 import { ITodo } from '@/pages/TodoPage/types';
 
 export const getTodo = async () => {
@@ -9,7 +8,7 @@ export const getTodo = async () => {
   });
 };
 
-export const createTodo = async (todo: createTodoType) => {
+export const createTodo = async (todo: string) => {
   return await apiClient({
     method: 'post',
     url: '/todos',

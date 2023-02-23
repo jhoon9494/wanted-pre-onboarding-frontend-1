@@ -1,5 +1,4 @@
 import { createTodo, getTodo } from '@/api/todo';
-import { createTodoType } from '@/api/todo/types';
 import TodoForm from '@/components/todo/TodoForm';
 import TodoItem from '@/components/todo/TodoItem';
 import { ITodo } from '@/pages/TodoPage/types';
@@ -14,7 +13,7 @@ const TodoPage = () => {
       .catch((err) => alert(err.response.data.log || err.log));
   }, []);
 
-  const onSubmit = (todo: createTodoType) => {
+  const onSubmit = (todo: string) => {
     createTodo(todo)
       .then(() => getTodos())
       .catch((err) => alert(err.response.data.log || err.log));

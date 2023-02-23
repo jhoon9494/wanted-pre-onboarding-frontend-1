@@ -1,5 +1,3 @@
-import { createTodoType } from '@/api/todo/types';
-
 export interface ITodo {
   id: number;
   todo: string;
@@ -8,7 +6,7 @@ export interface ITodo {
 }
 
 export interface ITodoForm {
-  submitFn: (todo: createTodoType) => void;
+  submitFn: (todo: string) => void;
 }
 
 export interface ITodoItem {
