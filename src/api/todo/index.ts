@@ -40,3 +40,10 @@ export const updateTodo = async (todoInput: string, todo: ITodo) => {
     },
   });
 };
+
+export const deleteTodo = async (id: number) => {
+  return await apiClient({
+    method: 'delete',
+    url: `/todos/${id}`,
+  });
+};

@@ -1,4 +1,4 @@
-import { updateTodo, updateCheck } from '@/api/todo';
+import { updateTodo, updateCheck, deleteTodo } from '@/api/todo';
 import { ITodoItem } from '@/pages/TodoPage/types';
 import { useState } from 'react';
 
@@ -22,8 +22,9 @@ const TodoItem = ({ todo, getTodos }: ITodoItem) => {
   };
 
   const handleDelete = () => {
-    // 삭제 기능
-    console.log('삭제하기');
+    deleteTodo(todo.id)
+      .then(() => getTodos())
+      .catch((err) => alert(err.response.data.log || err.log));
   };
 
   const handleModify = () => {
