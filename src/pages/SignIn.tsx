@@ -1,5 +1,5 @@
 import { AxiosError } from 'axios';
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { validateEmail, validatePassword } from '@/lib/utils/validator';
 import { signIn } from '@/api/auth';
@@ -9,6 +9,12 @@ const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem(ACCESS_TOKEN)) {
+      navigate('/todo', { replace: true });
+    }
+  }, [navigate]);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
