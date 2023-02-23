@@ -1,16 +1,19 @@
-import { ITodo } from '@/pages/TodoPage/types';
-import React, { useState } from 'react';
+import { updateCheck } from '@/api/todo';
+import { ITodoItem } from '@/pages/TodoPage/types';
 
-const TodoItem = ({ todo }: { todo: ITodo }) => {
-  const [isComplete, setIsComplete] = useState(todo.isCompleted);
-
+const TodoItem = ({ todo, getTodos }: ITodoItem) => {
+  const handleCheck = () => {
+    updateCheck(todo)
+      .then(() => getTodos())
+      .catch((err) => alert(err.response.data.log || err.log));
+  };
   return (
     <li>
       <label>
         <input
           type="checkbox"
-          checked={isComplete}
-          onChange={() => setIsComplete((curr) => !curr)}
+          checked={todo.isCompleted}
+          onChange={handleCheck}
         />
         <span>{todo.todo}</span>
       </label>
