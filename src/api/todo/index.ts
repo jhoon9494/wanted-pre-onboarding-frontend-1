@@ -29,3 +29,14 @@ export const updateCheck = async (todo: ITodo) => {
     },
   });
 };
+
+export const updateTodo = async (todoInput: string, todo: ITodo) => {
+  return await apiClient({
+    method: 'put',
+    url: `/todos/${todo.id}`,
+    data: {
+      todo: todoInput,
+      isCompleted: todo.isCompleted,
+    },
+  });
+};
