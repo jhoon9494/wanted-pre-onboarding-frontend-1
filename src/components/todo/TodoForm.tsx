@@ -1,14 +1,27 @@
 import { ITodoForm } from '@/pages/TodoPage/types';
 import useInputs from '@/lib/hooks/useInputs';
-import { FormEvent } from 'react';
+import { FormEvent, useState } from 'react';
+import { createTodo } from '@/api/todo';
 
-const TodoForm = ({ submitFn }: ITodoForm) => {
-  const [todoData, onChangeTodoData] = useInputs({ todo: '' });
+const TodoForm = ({ getTodos }: ITodoForm) => {
+  const [todoData, onChangeTodoData, setTodoData] = useInputs({ todo: '' });
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    submitFn(todoData.todo);
+
+    if (!isProcessing) {
+      setIsProcessing(true);
+      createTodo(todoData.todo)
+        .then(() => getTodos())
+        .catch((err) => alert(err.response.data.log || err.log))
+        .finally(() => {
+          setTodoData({ todo: '' });
+          setIsProcessing(false);
+        });
+    }
   };
+
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="todo">

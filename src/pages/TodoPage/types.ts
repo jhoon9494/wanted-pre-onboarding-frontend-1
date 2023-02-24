@@ -6,7 +6,7 @@ export interface ITodo {
 }
 
 export interface ITodoForm {
-  submitFn: (todo: string) => void;
+  getTodos: () => void;
 }
 
 export interface ITodoItem {
