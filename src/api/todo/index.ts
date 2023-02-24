@@ -1,5 +1,5 @@
 import apiClient from '@/api/apiClient';
-import { ITodo } from '@/pages/TodoPage/types';
+import { updateTodoType } from './types';
 
 export const getTodo = async () => {
   return await apiClient({
@@ -18,24 +18,13 @@ export const createTodo = async (todo: string) => {
   });
 };
 
-export const updateCheck = async (todo: ITodo) => {
+export const updateTodo = async ({ todo, id, isCompleted }: updateTodoType) => {
   return await apiClient({
     method: 'put',
-    url: `/todos/${todo.id}`,
+    url: `/todos/${id}`,
     data: {
-      todo: todo.todo,
-      isCompleted: !todo.isCompleted,
-    },
-  });
-};
-
-export const updateTodo = async (todoInput: string, todo: ITodo) => {
-  return await apiClient({
-    method: 'put',
-    url: `/todos/${todo.id}`,
-    data: {
-      todo: todoInput,
-      isCompleted: todo.isCompleted,
+      todo,
+      isCompleted,
     },
   });
 };

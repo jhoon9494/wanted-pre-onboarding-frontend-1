@@ -1,30 +1,58 @@
-import { updateTodo, updateCheck, deleteTodo } from '@/api/todo';
+import { updateTodo, deleteTodo } from '@/api/todo';
 import { ITodoItem } from '@/pages/TodoPage/types';
 import { useState } from 'react';
 
 const TodoItem = ({ todo, getTodos }: ITodoItem) => {
   const [isModify, setIsModify] = useState(false);
   const [todoInput, setTodoInput] = useState(todo.todo);
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const handleCheck = () => {
-    updateCheck(todo)
-      .then(() => getTodos())
-      .catch((err) => alert(err.response.data.log || err.log));
+    if (!isProcessing) {
+      setIsProcessing(true);
+
+      updateTodo({
+        todo: todoInput,
+        id: todo.id,
+        isCompleted: !todo.isCompleted,
+      })
+        .then(() => getTodos())
+        .catch((err) => alert(err.response.data.log || err.log))
+        .finally(() => {
+          setIsProcessing(false);
+        });
+    }
   };
 
   const handleSubmit = () => {
-    updateTodo(todoInput, todo)
-      .then(() => {
-        getTodos();
-        setIsModify(false);
+    if (!isProcessing) {
+      setIsProcessing(true);
+      updateTodo({
+        todo: todoInput,
+        id: todo.id,
+        isCompleted: todo.isCompleted,
       })
-      .catch((err) => alert(err.response.data.log || err.log));
+        .then(() => {
+          getTodos();
+          setIsModify(false);
+        })
+        .catch((err) => alert(err.response.data.log || err.log))
+        .finally(() => {
+          setIsProcessing(false);
+        });
+    }
   };
 
   const handleDelete = () => {
-    deleteTodo(todo.id)
-      .then(() => getTodos())
-      .catch((err) => alert(err.response.data.log || err.log));
+    if (!isProcessing) {
+      setIsProcessing(true);
+      deleteTodo(todo.id)
+        .then(() => getTodos())
+        .catch((err) => alert(err.response.data.log || err.log))
+        .finally(() => {
+          setIsProcessing(false);
+        });
+    }
   };
 
   const handleModify = () => {
