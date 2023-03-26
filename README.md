@@ -4,6 +4,78 @@
 
 이 프로젝트는 [CRA + TypeScript 템플릿](https://create-react-app.dev/docs/adding-typescript/)으로 제작되었습니다.
 
+### 🔗[배포주소](https://wanted-pre-onboarding-team8-1.netlify.app/signin)
+
+<br />
+
+## 📝과제 목적
+
+- best practice 만들어 제출하기
+- 동료 학습 및 협업 체계 만들기
+
+<br />
+
+## ✅과제 진행 방법
+
+[기능 구현 목록](/REQUIREMENTS.md)을 작성 후 아래와 같이 분류하였습니다.
+
+1. Sign in / Sign up
+2. CR-- todo
+3. --UD todo
+
+분류에 따라 팀원 개개인이 과제를 수행했습니다. 그리고 팀원이 다 같이 모여서 각자가 수행한 과제를 가지고 토론을 진행했습니다. 투표를 통해 Best Practice를 선정한 후, 다른 과제 중 좋았던 구현들을 의논하여 추가하였습니다. [이슈](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/issues)와 [PR메시지](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pulls)를 활용하여 문서화하였습니다.
+
+<br />
+
+## 👍 내가 구현한 기능
+
+- [로그인 / 회원가입 PR](https://github.com/Wanted-PreOnboarding-Team-8/pre-onboarding-9th-1-8/pull/5)
+    - api를 페이지 컴포넌트에서 관리하는 것이 아닌 기능 혹은 페이지 별로 모아서 관리
+    - type을 기능 별로 구분하여 작성하고 interface 폴더 내에 모아서 관리
+    - form 공통 컴포넌트 생성 후 로그인과 회원가입 시 재사용
+    
+- [Todo 생성 / 불러오기 PR](https://github.com/Wanted-PreOnboarding-Team-8/pre-onboarding-9th-1-8/pull/11) **👍 Best Practice**
+    - 관심사에 따라 3가지로 분류하여 컴포넌트 생성
+    
+- [Todo 삭제 / 수정 PR](https://github.com/Wanted-PreOnboarding-Team-8/pre-onboarding-9th-1-8/pull/21)
+    - Todo 목록 최신화를 위해 Todo CRUD 요청 후 전체 todo list를 갱신
+
+<br />
+
+## 🌟Best Practice Process
+
+과제 기능에 따라 분기를 나눠 팀원 개개인이 과제를 수행했습니다.
+그리고 팀원이 다 같이 모여서 각자가 수행한 과제를 가지고 토론을 진행했습니다.
+투표를 통해 Best Practice를 선정한 후, 다른 과제 중 좋았던 구현들을 의논하여 추가하였습니다.
+[이슈](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/issues)와 [PR 메시지](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pulls)를 활용하여 문서화하였습니다.
+
+**Feb 24, 2023**  　|　[UD— todo Practice PR](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pull/25)
+
+- 컴포넌트 단위를 가장 적절하게 나눈 점
+
+**Feb 23, 2023**  　|　[CR— todo Practice PR](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pull/11)
+
+- 재사용될 타입들을 파일로 분리해서 관리한 점
+- 컴포넌트 단위를 가장 적절하게 나눈 점
+
+**Feb 23, 2023**  　|　[Signin / Signup Best Practice PR](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pull/3)
+
+- routerMeta를 사용하여 router 할당을 자동화 시킨 점
+- axios interceptors를 통해 token 및 에러 처리를 진행한 점
+- React.lazy와 Suspense를 통한 컴포넌트 코드 스플리팅한 점
+- 토론을 거쳐 나온 프로젝트 구조(파일과 컴포넌트)에 가장 가까웠던 점
+- 커스텀 훅을 사용해 간결하게 코드를 정리한 점
+
+<br />
+
+## 🐞이슈 및 버그
+
+**Feb 23, 2023**  　|　[개발 툴 차이에 따른 lint 적용 이슈 해결](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pull/11/commits/d995d1cf6607353e4dc288cf9e832b58bb542147)
+
+**Feb 23, 2023**  　|　[Path Alias 오류 수정](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pull/1)
+
+<br />
+
 ## 👨‍💻팀원 소개
 
 <table border>
@@ -71,18 +143,15 @@
   </tbody>
 </table>
 
+<br />
+
 ## 🤝협업 툴
 
 - 디스코드
 - 노션
 - github
 
-## 📝과제 목적
-
-- best practice 만들어 제출하기
-- 동료 학습 및 협업 체계 만들기
-
-## 🔗[배포주소](https://wanted-pre-onboarding-team8-1.netlify.app/signin)
+<br />
 
 ## ⚙️설치 및 실행 가이드
 
@@ -106,6 +175,8 @@ npm start
 
 [백엔드 api 링크](https://github.com/walking-sunset/selection-task)
 
+<br />
+
 ## 🚀기능
 
 - Authenticate users via JWT (sign in, sign up, logout)
@@ -113,8 +184,12 @@ npm start
 - Redirect processing based on login
 - CRUD Todos
 
+<br />
+
 ### DEMO
 ![](https://user-images.githubusercontent.com/90181028/218148314-5036b532-a75d-4e87-b0f3-7e542a0ffbca.gif)
+
+<br />
 
 ## ✨기술 스택
 
@@ -125,45 +200,7 @@ npm start
 - bootstrap → 효율적인 스타일링을 위해 사용하였습니다.
 - craco → webpack 설정을 확장하기 위해 사용하였습니다. Path Alias를 사용합니다
 
-## ✅과제 진행 방법
-
-[기능 구현 목록](/REQUIREMENTS.md)을 작성 후 아래와 같이 분류하였습니다.
-
-1. Sign in / Sign up
-2. CR-- todo
-3. --UD todo
-
-분류에 따라 팀원 개개인이 과제를 수행했습니다. 그리고 팀원이 다 같이 모여서 각자가 수행한 과제를 가지고 토론을 진행했습니다. 투표를 통해 Best Practice를 선정한 후, 다른 과제 중 좋았던 구현들을 의논하여 추가하였습니다. [이슈](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/issues)와 [PR메시지](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pulls)를 활용하여 문서화하였습니다.
-
-## 🌟Best Practice Process
-
-과제 기능에 따라 분기를 나눠 팀원 개개인이 과제를 수행했습니다.
-그리고 팀원이 다 같이 모여서 각자가 수행한 과제를 가지고 토론을 진행했습니다.
-투표를 통해 Best Practice를 선정한 후, 다른 과제 중 좋았던 구현들을 의논하여 추가하였습니다.
-[이슈](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/issues)와 [PR 메시지](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pulls)를 활용하여 문서화하였습니다.
-
-**Feb 24, 2023**  　|　[UD— todo Practice PR](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pull/25)
-
-- 컴포넌트 단위를 가장 적절하게 나눈 점
-
-**Feb 23, 2023**  　|　[CR— todo Practice PR](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pull/11)
-
-- 재사용될 타입들을 파일로 분리해서 관리한 점
-- 컴포넌트 단위를 가장 적절하게 나눈 점
-
-**Feb 23, 2023**  　|　[Signin / Signup Best Practice PR](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pull/3)
-
-- routerMeta를 사용하여 router 할당을 자동화 시킨 점
-- axios interceptors를 통해 token 및 에러 처리를 진행한 점
-- React.lazy와 Suspense를 통한 컴포넌트 코드 스플리팅한 점
-- 토론을 거쳐 나온 프로젝트 구조(파일과 컴포넌트)에 가장 가까웠던 점
-- 커스텀 훅을 사용해 간결하게 코드를 정리한 점
-
-## 🐞이슈 및 버그
-
-**Feb 23, 2023**  　|　[개발 툴 차이에 따른 lint 적용 이슈 해결](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pull/11/commits/d995d1cf6607353e4dc288cf9e832b58bb542147)
-
-**Feb 23, 2023**  　|　[Path Alias 오류 수정](https://github.com/Wanted-PreOnboarding-Team-8/wanted-pre-onboarding-frontend-1/pull/1)
+<br />
 
 ## 🗂️파일 구조
 
